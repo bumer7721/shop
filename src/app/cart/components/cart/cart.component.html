@@ -1,0 +1,18 @@
+<h2>Cart works!</h2>
+
+<button on-click="addRandomProduct()">Add random product</button>
+<button on-click="clearCart()">Clear cart</button>
+<div *ngIf="isCartEmpty(); else productList">
+    Cart is empty! Please, click on "Add random product" button.
+</div>
+<ng-template #productList>
+    <h3>Products:</h3>
+    <hr>
+    <div *ngFor="let product of products">
+        <h4>{{product.name}}</h4>
+        <p>ID: #{{product.id}}</p>
+        <p>Quantity: {{product.quantity}}</p>
+        <p>Available: {{product.availability}}</p>
+        <hr>
+    </div>
+</ng-template>

@@ -1,0 +1,10 @@
+<h2>product list works!</h2>
+<p>List of products:</p>
+<hr>
+<div *ngFor="let product of products">
+    <h4>{{product.name}}</h4>
+    <p>ID: #{{product.id}}</p>
+    <p>Quantity: {{product.quantity}}</p>
+    <p>Available: {{product.availability}}</p>
+    <hr>
+</div>
