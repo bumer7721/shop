@@ -33,7 +33,7 @@ export class CartService {
     return this.products.length === 0;
   }
 
-  addProduct() {
+  addProduct(): void {
     const newProduct = new ProductModel(
       this.products.length + 1,
       this.getRandomName(),
@@ -44,7 +44,7 @@ export class CartService {
     this.products.push(newProduct);
   }
 
-  clearCart() {
+  clearCart(): void {
     this.products = new Array<ProductModel>();
   }
 

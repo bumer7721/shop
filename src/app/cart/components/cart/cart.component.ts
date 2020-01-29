@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('Cart component call OnInit()');
     this.products = this.cartService.getProducts();
   }
 
@@ -23,12 +24,13 @@ export class CartComponent implements OnInit {
     return this.cartService.isCartEmpty();
   }
 
-  addRandomProduct() {
+  addRandomProduct(): void {
     console.log('Random product will be added.');
     this.cartService.addProduct();
+    this.products = this.cartService.getProducts();
   }
 
-  clearCart() {
+  clearCart(): void {
     this.cartService.clearCart();
   }
 }
