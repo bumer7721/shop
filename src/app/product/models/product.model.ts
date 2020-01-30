@@ -6,9 +6,10 @@ export class ProductModel {
         public quantity: number,
         public availability: boolean,
     ) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.availability = availability;
+      // Это не надо делать, сработает автоматически
+      // this.id = id;
+        // this.name = name;
+        // this.quantity = quantity;
+        // this.availability = availability;
     }
 }
