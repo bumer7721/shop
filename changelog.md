@@ -1,4 +1,12 @@
-# Implemented
+# Implemented home task 2
+1. Разбито приложение на несколько модулей:
+    - AppModule, 
+    - CartModule, 
+    - ProductsModule, 
+    - OrdersModule, 
+    - SharedModule
+
+# Implemented home task 1
 
 1. Проинсталировано Angular-CLI (https://github.com/angular/angular-cli) 
   

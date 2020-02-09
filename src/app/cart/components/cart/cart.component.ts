@@ -24,13 +24,13 @@ export class CartComponent implements OnInit {
     return this.cartService.isCartEmpty();
   }
 
-  addRandomProduct(): void {
+  onAddRandomProduct(): void {
     console.log('Random product will be added.');
     this.cartService.addProduct();
     this.products = this.cartService.getProducts();
   }
 
-  clearCart(): void {
+  onClearCart(): void {
     this.cartService.clearCart();
   }
 }

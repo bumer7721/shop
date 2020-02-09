@@ -1,7 +1,7 @@
 <h2>Cart works!</h2>
 
-<button on-click="addRandomProduct()">Add random product</button>
-<button on-click="clearCart()">Clear cart</button>
+<button (click)="onAddRandomProduct()">Add random product</button>
+<button (click)="onClearCart()">Clear cart</button>
 <div *ngIf="isCartEmpty(); else productList">
     Cart is empty! Please, click on "Add random product" button.
 </div>
