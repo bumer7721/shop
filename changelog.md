@@ -6,7 +6,7 @@
     - OrdersModule, 
     - SharedModule
     
-2. Vодифицировано ProductListComponent, который делегирует отображение списка товаров
+2. Модифицировано ProductListComponent, который делегирует отображение списка товаров
    компоненту ProductComponent. Товары компоненту предоставлено с помощью метода getProducts() сервиса ProductService.
 
 # Implemented home task 1
