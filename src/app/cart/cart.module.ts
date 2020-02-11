@@ -11,7 +11,7 @@ import { CartComponent } from './components/cart/cart.component';
   imports: [
     CommonModule
   ],
-  exports:[
+  exports: [
     CartComponent
   ]
 })

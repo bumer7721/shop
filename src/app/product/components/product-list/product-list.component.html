@@ -2,9 +2,6 @@
 <p>List of products:</p>
 <hr>
 <div *ngFor="let product of products">
-    <h4>{{product.name}}</h4>
-    <p>ID: #{{product.id}}</p>
-    <p>Quantity: {{product.quantity}}</p>
-    <p>Available: {{product.availability}}</p>
+    <app-product [product]="product">Loading...</app-product>
     <hr>
 </div>
