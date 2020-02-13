@@ -1,6 +1,5 @@
-<h2>product works!</h2>
 <h4>{{product.name}}</h4>
 <p>ID: #{{product.id}}</p>
 <p>Quantity: {{product.quantity}}</p>
 <p>Available: {{product.availability}}</p>
-<button (click)="onBuy()">Buy</button>
+<button [disabled]="!isAvailable()" (click)="onAddToCart()">Add to cart</button>
