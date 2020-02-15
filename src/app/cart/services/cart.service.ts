@@ -16,13 +16,33 @@ export class CartService {
     return this.products;
   }
 
+  getTotalCountOfProducts(): number {
+    return this.products.reduce((totalCount, p) => totalCount + p.quantity, 0);
+  }
+
+  getTotalPrice(): number {
+    return this.products.reduce((totalPrice, p) => totalPrice + p.price, 0);
+  }
+
   isCartEmpty(): boolean {
     return this.products.length === 0;
   }
 
   addProduct(product: ProductModel): void {
     console.log('Product id: ' + product.id + 'has been added to cart!');
-    this.products.push(product);
+    if (this.isCartContainsProduct(product)) {
+      const addedProduct = this.products.find((p) => p.id === product.id);
+      addedProduct.quantity++;
+      addedProduct.price = product.price * addedProduct.quantity;
+    } else {
+      const newProduct = Object.create(product);
+      newProduct.quantity = 1;
+      this.products.push(newProduct);
+    }
+  }
+
+  isCartContainsProduct(product: ProductModel): boolean {
+    return this.products.some((p) => p.id === product.id);
   }
 
   clearCart(): void {

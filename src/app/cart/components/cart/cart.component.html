@@ -1,17 +1,51 @@
-<h2>Cart works!</h2>
+<h5>Cart works!</h5>
 
 <button (click)="onClearCart()">Clear cart</button>
 <div *ngIf="isCartEmpty(); else productList">
-    Cart is empty! Please, click on "Add random product" button.
+    Cart is empty! Please, add some product from list.
 </div>
 <ng-template #productList>
-    <h3>Products:</h3>
+    <h6>Products:</h6>
     <hr>
-    <div *ngFor="let product of products">
-        <h4>{{product.name}}</h4>
-        <p>ID: #{{product.id}}</p>
-        <p>Quantity: {{product.quantity}}</p>
-        <p>Available: {{product.availability}}</p>
+    <div class="row">
+        <div class="col">
+            ID
+        </div>
+        <div class="col-6">
+            Name
+        </div>
+        <div class="col">
+            Quantity
+        </div>
+        <div class="col">
+            Price
+        </div>
+    </div>
+    <div class="row" *ngFor="let product of products">
+        <div class="col">
+            <p>{{product.id}}</p>
+        </div>
+        <div class="col-6">
+            <h6>{{product.name}}</h6>
+        </div>
+        <div class="col">
+            <p>{{product.quantity}}</p>
+        </div>
+        <div class="col">
+            <p>{{product.price}}</p>
+        </div>
         <hr>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6>Totals:</h6>
+        </div>
+        <div class="col-6"></div>
+        <div class="col">
+            <h6>{{totalCount}}</h6>
+        </div>
+        <div class="col">
+            <h6>{{totalPrice}}</h6>
+        </div>
     </div>
 </ng-template>

@@ -21,15 +21,16 @@ export class ProductService {
 
   products: Array<ProductModel> = new Array<ProductModel>();
 
-  constructor() { 
+  constructor() {
     const countProducts = 5;
 
-    for( let i=0 ; i<countProducts; i++) {
+    for ( let i = 0 ; i < countProducts; i++) {
       const quantity = this.random(15);
       const newProduct = new ProductModel(
         this.products.length + 1,
         this.getRandomName(),
         quantity,
+        this.random(10000),
         quantity > 0
       );
 
