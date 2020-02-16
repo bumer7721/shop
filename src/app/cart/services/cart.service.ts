@@ -37,7 +37,7 @@ export class CartService {
     } else {
       const newProduct = Object.create(product);
       newProduct.quantity = 1;
-      this.products.push(newProduct);
+      this.products = [...this.products, newProduct];
     }
   }
 
@@ -46,7 +46,7 @@ export class CartService {
   }
 
   clearCart(): void {
-    this.products.splice(0, this.products.length);
+    this.products = [];
   }
 
 }

@@ -7,11 +7,7 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, DoCheck {
-
-  products: Array<ProductModel>;
-  totalCount: number;
-  totalPrice: number;
+export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService
@@ -19,15 +15,18 @@ export class CartComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     console.log('Cart component call OnInit()');
-    this.products = this.cartService.getProducts();
-    this.totalCount = this.cartService.getTotalCountOfProducts();
-    this.totalPrice = this.cartService.getTotalPrice();
   }
 
-  ngDoCheck(): void {
-    console.log('Cart component call DoCheck()');
-    this.totalCount = this.cartService.getTotalCountOfProducts();
-    this.totalPrice = this.cartService.getTotalPrice();
+  get products(): Array<ProductModel> {
+    return this.cartService.getProducts();
+  }
+
+  get totalCount(): number {
+    return this.cartService.getTotalCountOfProducts();
+  }
+
+  get totalPrice(): number {
+    return this.cartService.getTotalPrice();
   }
 
   isCartEmpty(): boolean {
