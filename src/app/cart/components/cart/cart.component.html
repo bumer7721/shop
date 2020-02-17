@@ -8,44 +8,18 @@
     <h6>Products:</h6>
     <hr>
     <div class="row">
-        <div class="col">
-            ID
-        </div>
-        <div class="col-6">
-            Name
-        </div>
-        <div class="col">
-            Quantity
-        </div>
-        <div class="col">
-            Price
-        </div>
+        <div class="col-1">ID</div>
+        <div class="col-6">Name</div>
+        <div class="col">Quantity</div>
+        <div class="col-3">Price</div>
     </div>
-    <div class="row" *ngFor="let product of products">
-        <div class="col">
-            <p>{{product.id}}</p>
-        </div>
-        <div class="col-6">
-            <h6>{{product.name}}</h6>
-        </div>
-        <div class="col">
-            <p>{{product.quantity}}</p>
-        </div>
-        <div class="col">
-            <p>{{product.price}}</p>
-        </div>
-        <hr>
+    <div *ngFor="let product of products">
+        <app-cart-item class="row" [product]="product">Loading...</app-cart-item>
     </div>
     <div class="row">
-        <div class="col">
-            <h6>Totals:</h6>
-        </div>
-        <div class="col-6"></div>
-        <div class="col">
-            <h6>{{totalCount}}</h6>
-        </div>
-        <div class="col">
-            <h6>{{totalPrice}}</h6>
-        </div>
+        <div class="col"><h6>Totals:</h6></div>
+        <div class="col-5"></div>
+        <div class="col"><h6>{{totalCount}}</h6></div>
+        <div class="col-3"><h6>{{totalPrice}}</h6></div>
     </div>
 </ng-template>

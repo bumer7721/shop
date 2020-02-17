@@ -41,6 +41,11 @@ export class CartService {
     }
   }
 
+  removeProduct(product: ProductModel): void {
+    console.log('Product id: ' + product.id + 'has been removed from cart!');
+    this.products = this.products.filter(p => p.id !== product.id);
+  }
+
   isCartContainsProduct(product: ProductModel): boolean {
     return this.products.some((p) => p.id === product.id);
   }
