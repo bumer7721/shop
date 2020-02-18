@@ -9,17 +9,17 @@
     <hr>
     <div class="row">
         <div class="col-1">ID</div>
-        <div class="col-6">Name</div>
-        <div class="col">Quantity</div>
+        <div class="col-5">Name</div>
+        <div class="col-3">Quantity</div>
         <div class="col-3">Price</div>
     </div>
     <div *ngFor="let product of products">
         <app-cart-item class="row" [product]="product">Loading...</app-cart-item>
     </div>
     <div class="row">
-        <div class="col"><h6>Totals:</h6></div>
-        <div class="col-5"></div>
-        <div class="col"><h6>{{totalCount}}</h6></div>
-        <div class="col-3"><h6>{{totalPrice}}</h6></div>
+        <div class="col font-weight-bold">Totals:</div>
+        <div class="col-4"></div>
+        <div class="col-3 font-weight-bold">{{totalCount}}</div>
+        <div class="col-3 font-weight-bold">{{totalPrice}}</div>
     </div>
 </ng-template>

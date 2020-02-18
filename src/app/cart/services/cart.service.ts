@@ -31,14 +31,27 @@ export class CartService {
   addProduct(product: ProductModel): void {
     console.log('Product id: ' + product.id + 'has been added to cart!');
     if (this.isCartContainsProduct(product)) {
-      const addedProduct = this.products.find((p) => p.id === product.id);
+      const addedProduct = this.findProductById(product);
       addedProduct.quantity++;
-      addedProduct.price = product.price * addedProduct.quantity;
     } else {
       const newProduct = Object.create(product);
       newProduct.quantity = 1;
       this.products = [...this.products, newProduct];
     }
+  }
+
+  addQuantity(product: ProductModel): void {
+    product.quantity++;
+  }
+
+  subQuantity(product: ProductModel): void {
+    if (product.quantity - 1 >= 0) {
+      product.quantity--;
+    }
+  }
+
+  private findProductById(product: ProductModel): ProductModel {
+    return this.products.find((p) => p.id === product.id);
   }
 
   removeProduct(product: ProductModel): void {

@@ -18,6 +18,14 @@ export class CartItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  addQuantity(product: ProductModel): void {
+    this.cartService.addQuantity(product);
+  }
+
+  subQuantity(product: ProductModel): void {
+    this.cartService.subQuantity(product);
+  }
+
   removeProduct(product: ProductModel): void {
     this.cartService.removeProduct(product);
   }
