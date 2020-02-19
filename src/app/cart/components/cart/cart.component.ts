@@ -33,6 +33,18 @@ export class CartComponent implements OnInit {
     return this.cartService.isCartEmpty();
   }
 
+  onRemoveProduct(product: ProductModel): void {
+    this.cartService.removeProduct(product);
+  }
+
+  onAddQuantity(product: ProductModel): void {
+    this.cartService.addQuantity(product);
+  }
+
+  onSubQuantity(product: ProductModel): void {
+    this.cartService.subQuantity(product);
+  }
+
   onClearCart(): void {
     this.cartService.clearCart();
   }

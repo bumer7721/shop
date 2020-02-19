@@ -21,7 +21,7 @@ export class CartService {
   }
 
   getTotalPrice(): number {
-    return this.products.reduce((totalPrice, p) => totalPrice + p.price, 0);
+    return this.products.reduce((totalPrice, p) => totalPrice + p.price * p.quantity, 0);
   }
 
   isCartEmpty(): boolean {

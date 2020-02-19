@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductModel } from 'src/app/product/models/product.model';
-import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -11,23 +10,29 @@ export class CartItemComponent implements OnInit {
 
   @Input() product: ProductModel;
 
-  constructor(
-    private cartService: CartService
-  ) { }
+  @Output() deleteProduct: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  @Output() addQuantityProduct: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+  @Output() subQuantityProduct: EventEmitter<ProductModel> = new EventEmitter<ProductModel>();
+
+  constructor( ) { }
 
   ngOnInit() {
   }
 
-  addQuantity(product: ProductModel): void {
-    this.cartService.addQuantity(product);
+  get fullPrice(): number {
+    return this.product.quantity * this.product.price;
   }
 
-  subQuantity(product: ProductModel): void {
-    this.cartService.subQuantity(product);
+  addQuantity(): void {
+    this.addQuantityProduct.emit(this.product);
   }
 
-  removeProduct(product: ProductModel): void {
-    this.cartService.removeProduct(product);
+  subQuantity(): void {
+    this.subQuantityProduct.emit(this.product);
+  }
+
+  removeProduct(): void {
+    this.deleteProduct.emit(this.product);
   }
 
 }

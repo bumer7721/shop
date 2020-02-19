@@ -14,7 +14,13 @@
         <div class="col-3">Price</div>
     </div>
     <div *ngFor="let product of products">
-        <app-cart-item class="row" [product]="product">Loading...</app-cart-item>
+        <app-cart-item class="row" 
+            [product]="product"
+            (deleteProduct)="onRemoveProduct($event)"
+            (addQuantityProduct)="onAddQuantity($event)"
+            (subQuantityProduct)="onSubQuantity($event)">
+            Loading...
+        </app-cart-item>
     </div>
     <div class="row">
         <div class="col font-weight-bold">Totals:</div>
