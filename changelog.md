@@ -36,7 +36,6 @@
     Для этого создано директиву и зарегистрировано ее в SharedModule.
     Использовано @HostBinding, @HostListener декораторы.
 
-
 # Implemented home task 1
 
 1. Проинсталировано Angular-CLI (https://github.com/angular/angular-cli) 
