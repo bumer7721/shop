@@ -1,18 +1,31 @@
-<h2>Cart works!</h2>
+<h5>Cart works!</h5>
 
-<button on-click="addRandomProduct()">Add random product</button>
-<button on-click="clearCart()">Clear cart</button>
+<button (click)="onClearCart()">Clear cart</button>
 <div *ngIf="isCartEmpty(); else productList">
-    Cart is empty! Please, click on "Add random product" button.
+    Cart is empty! Please, add some product from list.
 </div>
 <ng-template #productList>
-    <h3>Products:</h3>
+    <h6>Products:</h6>
     <hr>
+    <div class="row">
+        <div class="col-1">ID</div>
+        <div class="col-5">Name</div>
+        <div class="col-3">Quantity</div>
+        <div class="col-3">Price</div>
+    </div>
     <div *ngFor="let product of products">
-        <h4>{{product.name}}</h4>
-        <p>ID: #{{product.id}}</p>
-        <p>Quantity: {{product.quantity}}</p>
-        <p>Available: {{product.availability}}</p>
-        <hr>
+        <app-cart-item appMouseEnterBackround class="row" 
+            [product]="product"
+            (deleteProduct)="onRemoveProduct($event)"
+            (addQuantityProduct)="onAddQuantity($event)"
+            (subQuantityProduct)="onSubQuantity($event)">
+            Loading...
+        </app-cart-item>
+    </div>
+    <div class="row">
+        <div class="col font-weight-bold">Totals:</div>
+        <div class="col-4"></div>
+        <div class="col-3 font-weight-bold">{{totalCount}}</div>
+        <div class="col-3 font-weight-bold">{{totalPrice}}</div>
     </div>
 </ng-template>

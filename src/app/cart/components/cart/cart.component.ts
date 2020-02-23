@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, DoCheck } from '@angular/core';
 import { ProductModel } from 'src/app/product/models/product.model';
 import { CartService } from '../../services/cart.service';
 
@@ -9,28 +9,43 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  products: Array<ProductModel>;
-
   constructor(
     private cartService: CartService
   ) { }
 
   ngOnInit() {
     console.log('Cart component call OnInit()');
-    this.products = this.cartService.getProducts();
+  }
+
+  get products(): Array<ProductModel> {
+    return this.cartService.getProducts();
+  }
+
+  get totalCount(): number {
+    return this.cartService.getTotalCountOfProducts();
+  }
+
+  get totalPrice(): number {
+    return this.cartService.getTotalPrice();
   }
 
   isCartEmpty(): boolean {
     return this.cartService.isCartEmpty();
   }
 
-  addRandomProduct(): void {
-    console.log('Random product will be added.');
-    this.cartService.addProduct();
-    this.products = this.cartService.getProducts();
+  onRemoveProduct(product: ProductModel): void {
+    this.cartService.removeProduct(product);
   }
 
-  clearCart(): void {
+  onAddQuantity(product: ProductModel): void {
+    this.cartService.addQuantity(product);
+  }
+
+  onSubQuantity(product: ProductModel): void {
+    this.cartService.subQuantity(product);
+  }
+
+  onClearCart(): void {
     this.cartService.clearCart();
   }
 }
