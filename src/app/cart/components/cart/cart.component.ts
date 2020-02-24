@@ -18,15 +18,15 @@ export class CartComponent implements OnInit {
   }
 
   get products(): Array<ProductModel> {
-    return this.cartService.getProducts();
+    return this.cartService.getCartProducts();
   }
 
   get totalCount(): number {
-    return this.cartService.getTotalCountOfProducts();
+    return this.cartService.getTotalQuantity();
   }
 
   get totalPrice(): number {
-    return this.cartService.getTotalPrice();
+    return this.cartService.getTotalSum();
   }
 
   isCartEmpty(): boolean {
@@ -38,14 +38,14 @@ export class CartComponent implements OnInit {
   }
 
   onAddQuantity(product: ProductModel): void {
-    this.cartService.addQuantity(product);
+    this.cartService.increaseQuantity(product);
   }
 
   onSubQuantity(product: ProductModel): void {
-    this.cartService.subQuantity(product);
+    this.cartService.decreaseQuantity(product);
   }
 
   onClearCart(): void {
-    this.cartService.clearCart();
+    this.cartService.removeAllProducts();
   }
 }

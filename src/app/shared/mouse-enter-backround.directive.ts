@@ -10,20 +10,20 @@ export class MouseEnterBackroundDirective {
   // tslint:disable-next-line: no-input-rename
   @Input('class')
   @HostBinding('class')
-  hostClasses: string;
+  class: string;
 
   constructor( ) { }
 
   @HostListener('mouseenter')
   onMouseEnter() {
     console.log('Mouse enter!');
-    this.hostClasses += this.mouseEnterClasses;
+    this.class += this.mouseEnterClasses;
   }
 
   @HostListener('mouseleave')
   onMouseLeave() {
     console.log('Mouse leave!');
-    this.hostClasses = this.hostClasses.replace(this.mouseEnterClasses, '');
+    this.class = this.class.replace(this.mouseEnterClasses, '');
   }
 
 }

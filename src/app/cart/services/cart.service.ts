@@ -6,26 +6,28 @@ import { ProductModel } from 'src/app/product/models/product.model';
 })
 export class CartService {
 
-  products: Array<ProductModel>;
+  cartProducts: Array<ProductModel>;
+  totalQuantity: number;
+  totalSum: number;
 
   constructor() {
-    this.products = new Array<ProductModel>();
+    this.cartProducts = new Array<ProductModel>();
   }
 
-  getProducts(): Array<ProductModel> {
-    return this.products;
+  getCartProducts(): Array<ProductModel> {
+    return this.cartProducts;
   }
 
-  getTotalCountOfProducts(): number {
-    return this.products.reduce((totalCount, p) => totalCount + p.quantity, 0);
+  getTotalQuantity(): number {
+    return this.totalQuantity;
   }
 
-  getTotalPrice(): number {
-    return this.products.reduce((totalPrice, p) => totalPrice + p.price * p.quantity, 0);
+  getTotalSum(): number {
+    return this.totalSum;
   }
 
   isCartEmpty(): boolean {
-    return this.products.length === 0;
+    return this.cartProducts.length === 0;
   }
 
   addProduct(product: ProductModel): void {
@@ -36,35 +38,45 @@ export class CartService {
     } else {
       const newProduct = Object.create(product);
       newProduct.quantity = 1;
-      this.products = [...this.products, newProduct];
+      this.cartProducts = [...this.cartProducts, newProduct];
     }
+    this.updateCartData();
   }
 
-  addQuantity(product: ProductModel): void {
+  increaseQuantity(product: ProductModel): void {
     product.quantity++;
+    this.updateCartData();
   }
 
-  subQuantity(product: ProductModel): void {
+  decreaseQuantity(product: ProductModel): void {
     if (product.quantity - 1 >= 0) {
       product.quantity--;
+      this.updateCartData();
     }
   }
 
   private findProductById(product: ProductModel): ProductModel {
-    return this.products.find((p) => p.id === product.id);
+    return this.cartProducts.find((p) => p.id === product.id);
   }
 
   removeProduct(product: ProductModel): void {
     console.log('Product id: ' + product.id + 'has been removed from cart!');
-    this.products = this.products.filter(p => p.id !== product.id);
+    this.cartProducts = this.cartProducts.filter(p => p.id !== product.id);
+    this.updateCartData();
   }
 
   isCartContainsProduct(product: ProductModel): boolean {
-    return this.products.some((p) => p.id === product.id);
+    return this.cartProducts.some((p) => p.id === product.id);
   }
 
-  clearCart(): void {
-    this.products = [];
+  removeAllProducts(): void {
+    this.cartProducts = [];
+    this.updateCartData();
+  }
+
+  private updateCartData(): void {
+    this.totalQuantity = this.cartProducts.reduce((totalCount, p) => totalCount + p.quantity, 0);
+    this.totalSum =  this.cartProducts.reduce((totalPrice, p) => totalPrice + p.price * p.quantity, 0);
   }
 
 }
