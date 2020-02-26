@@ -10,6 +10,12 @@
         increaseQuantity()/decreaseQuantity() - увеличить/уменьшить количество для указаного товара
         removeAllProducts() - очистить корзину
         updateCartData() - пересчитать общее количество товара и сумму после каждой операции, которая влияет на корзину
+2. Создано сервис LocalStorageService (core/services/local-storage.service.ts), который позволит работать 
+   с window.localStorage (как класс, useClass). 
+   Он должен предоставлять методы для:
+    - установки значения (setItem)
+    - получения значения (getItem)
+    - удаления значения (removeItem)
 
 
 # Implemented home task 2
