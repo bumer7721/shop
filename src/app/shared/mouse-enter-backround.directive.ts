@@ -7,6 +7,7 @@ export class MouseEnterBackroundDirective {
 
   private mouseEnterClasses = ' bg-info text-white';
 
+  // tslint:disable-next-line: no-input-rename
   @Input('class')
   @HostBinding('class')
   hostClasses: string;
