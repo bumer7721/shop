@@ -1,7 +1,9 @@
 <h5>product list works!</h5>
 <p>List of products:</p>
 <hr>
-<div *ngFor="let product of products">
-    <app-product [product]="product" (addedProduct)="onAddToCart($event)">Loading...</app-product>
-    <hr>
-</div>
+<app-product *ngFor="let product of products"
+        appClickBorderColor="border-success"
+        [product]="product" 
+        (addedProduct)="onAddToCart($event)">
+    Loading...
+</app-product>

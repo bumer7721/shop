@@ -17,6 +17,10 @@
     - получения значения (getItem)
     - удаления значения (removeItem)
 
+8. Написана директива shared/directives/click-border-color.directive.ts, которая добавляет обработчик события click к хост элементу. 
+   Клик добавляет рамку. 
+   Добавлено @Input() для директивы. Используйте ElementRef + Renderer2
+
 
 # Implemented home task 2
 1. Разбито приложение на несколько модулей:
