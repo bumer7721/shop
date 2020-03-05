@@ -17,6 +17,10 @@
     - получения значения (getItem)
     - удаления значения (removeItem)
 
+5. Создано сервис GeneratorService (core/services/generator.ts), который должен генерировать случайную последовательность символов длины n 
+   из набора a-z, A-Z, 0-9. Создано функцию GeneratorFactory(n: number), оторая будет предоставлять сгенеренную строку, используя GeneratorService
+   Зарегистрировано GeneratorService используя useFactory. 
+
 8. Написана директива shared/directives/click-border-color.directive.ts, которая добавляет обработчик события click к хост элементу. 
    Клик добавляет рамку. 
    Добавлено @Input() для директивы. Используйте ElementRef + Renderer2
