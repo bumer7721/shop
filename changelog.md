@@ -17,6 +17,9 @@
     - получения значения (getItem)
     - удаления значения (removeItem)
 
+4. Создано сервис ConstantsService (core/services/constant.service.ts), в виде готового литерала объекта,
+   например { App: "TaskManager", Ver: "1.0" }. Зарегистрировано его, используя useValue.
+
 5. Создано сервис GeneratorService (core/services/generator.ts), который должен генерировать случайную последовательность символов длины n 
    из набора a-z, A-Z, 0-9. Создано функцию GeneratorFactory(n: number), оторая будет предоставлять сгенеренную строку, используя GeneratorService
    Зарегистрировано GeneratorService используя useFactory. 
