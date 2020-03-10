@@ -17,12 +17,20 @@
     - получения значения (getItem)
     - удаления значения (removeItem)
 
+3. Создано сервис ConfigOptionsService (core/services/config-options.service.ts), который должен хранить объект настроек (id, login, email, ...).
+   Сервис должен предоставлять методы для установки и извлечения данных. Метод установки на вход принимает объект,
+   а метод извлечения данных возвращает объект. Предусмотреть возможность установки подмножества свойств.
+   Например, { id, login } 
+
 4. Создано сервис ConstantsService (core/services/constant.service.ts), в виде готового литерала объекта,
    например { App: "TaskManager", Ver: "1.0" }. Зарегистрировано его, используя useValue.
 
 5. Создано сервис GeneratorService (core/services/generator.ts), который должен генерировать случайную последовательность символов длины n 
    из набора a-z, A-Z, 0-9. Создано функцию GeneratorFactory(n: number), оторая будет предоставлять сгенеренную строку, используя GeneratorService
    Зарегистрировано GeneratorService используя useFactory. 
+
+6. Создано демо-компонент AboutComponent (layout/components/about.component.ts) и внедрите перечисленные выше сервисы.  
+   Используйте декоратор @Optional().
 
 8. Написана директива shared/directives/click-border-color.directive.ts, которая добавляет обработчик события click к хост элементу. 
    Клик добавляет рамку. 
