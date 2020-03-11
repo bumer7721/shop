@@ -1,7 +1,7 @@
 <h6>{{product.name}}</h6>
 <p>ID: #{{product.id}}</p>
 <p>Quantity: {{product.quantity}}</p>
-<p>Price: {{product.price}}</p>
+<p>Price: {{product.price | currency}}</p>
 <p>Available: {{product.availability}}</p>
 <button [disabled]="!isAvailable()" (click)="onAddToCart()">Add to cart</button>
 <hr>
