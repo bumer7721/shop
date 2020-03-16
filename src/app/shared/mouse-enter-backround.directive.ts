@@ -27,3 +27,4 @@ export class MouseEnterBackroundDirective {
   }
 
 }
+// Почему эта директива находится за пределами папки directives
