@@ -1,7 +1,7 @@
 <h5>product list works!</h5>
 <p>List of products:</p>
-<hr>
-<app-product *ngFor="let product of products"
+
+<app-product *ngFor="let product of products | async"
         appClickBorderColor="border-success"
         [product]="product" 
         (addedProduct)="onAddToCart($event)">

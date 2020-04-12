@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from '../models/product.model';
+import { Observable, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,10 @@ export class ProductService {
     }
   }
 
-  getProducts(): Array<ProductModel> {
-    return this.products;
+  getProducts(): Observable<Array<ProductModel>> {
+    return new Observable<Array<ProductModel>>((subsriber: Subscriber<Array<ProductModel>>) => {
+        subsriber.next(this.products);
+    });
   }
 
   private random(max: number): number {
