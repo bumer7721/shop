@@ -9,12 +9,17 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
+  orderProperty: string;
+  desc: boolean;
+
   constructor(
     private cartService: CartService
   ) { }
 
   ngOnInit() {
     console.log('Cart component call OnInit()');
+    this.orderProperty = 'name';
+    this.desc = true;
   }
 
   get products(): Array<ProductModel> {
@@ -47,5 +52,13 @@ export class CartComponent implements OnInit {
 
   onClearCart(): void {
     this.cartService.removeAllProducts();
+  }
+
+  onSelectOrderProperty(orderProperty: string) {
+    this.orderProperty = orderProperty;
+  }
+
+  onDesc() {
+    this.desc = !this.desc;
   }
 }
