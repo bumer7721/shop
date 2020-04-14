@@ -12,6 +12,7 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     CommonModule
   ],
   exports: [
+    CommonModule,
     MouseEnterBackroundDirective,
     ClickBorderColorDirective,
     OrderByPipe

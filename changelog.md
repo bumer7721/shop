@@ -15,6 +15,14 @@
    реализовано возмомность сортировать массив товаров по цене, количеству, названию 
    c помощью выпадающего списка
 
+5. Экспортировано из SharedModule следующие модули CommonModule. Использовано SharedModule
+   ProductsModule, CartModule, а модули CommonModule уберано из импорта.
+
+6. Описать в changelog, где применены пайпы:
+ - на всіх полях з ціною currency pipe
+ - на ProductListComponent async pipe
+ - на CartComponent orderByPipe з параметрами
+
 
 # Implemented home task 3
 1. Модифицировано сервис CartService (cart/services/cart.service.ts), который должен содержать данные корзины интернет магазина и управлять содержимым.
