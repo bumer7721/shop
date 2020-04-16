@@ -43,6 +43,8 @@ export class ProductService {
     return new Observable<Array<ProductModel>>((subsriber: Subscriber<Array<ProductModel>>) => {
         subsriber.next(this.products);
     });
+    // можно так
+    // return of(this.products);
   }
 
   private random(max: number): number {
